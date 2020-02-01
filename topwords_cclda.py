@@ -5,7 +5,7 @@ from operator import itemgetter
 
 def main(): 
 	filename = sys.argv[1]
-	infile = file(filename, "r")
+	infile = open(filename, "r")
 
 	C = 0
 	Z = 0
@@ -46,7 +46,7 @@ def main():
 	Z += 1
 
 	for z in range(Z):
-		print "Topic %d\n--------" % (z+1)
+		print("Topic %d\n--------" % (z+1))
 
 		w = 0
 		if (z not in count):
@@ -55,12 +55,12 @@ def main():
 			words = sorted(count[z].items(), key=itemgetter(1), reverse=True)
 
 		for word, v in words:
-			print word 
+			print(word) 
 			w += 1
 			if w >= 20: break
 
 		for c in range(C):
-			print "-Collection %d" % (c)
+			print("-Collection %d" % (c))
 
 			w = 0
 
@@ -69,11 +69,11 @@ def main():
 			else:
 				words = sorted(countC[c][z].items(), key=itemgetter(1), reverse=True)
 			for word, v in words:
-				print "  "+word 
+				print("  "+word )
 				w += 1
 				if w >= 20: break
 
-		print "\n"
+		print("\n")
 
 if __name__ ==  "__main__":
-  main()
+	main()
